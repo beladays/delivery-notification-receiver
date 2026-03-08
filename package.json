@@ -1,0 +1,25 @@
+{
+  "name": "delivery-notification-receiver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beladays/delivery-notification-receiver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/beladays/delivery-notification-receiver/issues"
+  },
+  "homepage": "https://github.com/beladays/delivery-notification-receiver#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "redis": "^5.11.0"
+  }
+}

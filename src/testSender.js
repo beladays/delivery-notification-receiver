@@ -24,5 +24,5 @@ async function sendMessage() {
     "pedido_status",
     "Pedido 1 foi entregue"
   );
-
+}
   await cl

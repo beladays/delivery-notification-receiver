@@ -2,6 +2,7 @@
   "name": "delivery-notification-receiver",
   "version": "1.0.0",
   "description": "",
+  
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/beladays/delivery-notification-receiver/issues"
   },

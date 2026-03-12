@@ -1,28 +1,38 @@
-//teste do sistema q vai enviar
-const { createClient } = require("redis");
+import { createClient } from "redis";
 
-async function sendMessage() {
-  const client = createClient({
-    url: "redis://127.0.0.1:6379",
-  });
+const redis = createClient();
 
-  await client.connect();
+redis.on("error", (err) => console.log("Redis error:", err));
 
-  console.log("Enviando mensagem...");
+await redis.connect();
 
-  await client.publish(
-    "pedido_status",
-    "Pedido 1 foi preparado"
-  );
-
-  await client.publish(
-    "pedido_status",
-    "Pedido 1 foi enviado"
-  );
-
-  await client.publish(
-    "pedido_status",
-    "Pedido 1 foi entregue"
-  );
+function delay(segundos) {
+  return new Promise(resolve => setTimeout(resolve, segundos));
 }
-  await cl
+
+async function simularPedido(idPedido) {
+
+  const statusPedido = [
+    "PREPARANDO",
+    "ENVIADO",
+    "ENTREGUE"
+  ];
+
+  for (const status of statusPedido) {
+
+    const evento = {
+      idPedido,
+      status,
+      data: new Date().toISOString()
+    };
+
+    await redis.publish("pedido_status", JSON.stringify(evento));
+
+    console.log(`Pedido ${idPedido} -> ${status}`);
+
+    await delay(5000); 
+  }
+
+}
+
+simularPedido(2);

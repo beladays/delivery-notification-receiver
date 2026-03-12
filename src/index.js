@@ -1,6 +1,6 @@
-const { connectRedis } = require("./redisClient");
-const startSubscriber = require("./subscriber");
-require("./server");
+import { connectRedis } from "./redisClient.js";
+import startSubscriber from "./subscriber.js";
+import "./server.js";
 
 async function start() {
   await connectRedis();

@@ -1,10 +1,10 @@
-//quem recebe a notificaão
+// quem recebe a notificação
 
-const { createClient } = require("redis");
+import { createClient } from "redis";
 
 const subscriber = createClient();
 
-async function startSubscriber() {
+export default async function startSubscriber() {
   await subscriber.connect();
 
   console.log("Aguardando notificações...");
@@ -13,5 +13,3 @@ async function startSubscriber() {
     console.log("Notificação recebida:", message);
   });
 }
-
-module.exports = startSubscriber;
